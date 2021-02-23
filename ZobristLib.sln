@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZobristLib", "ZobristLib.csproj", "{CF75C50C-05FF-4C7D-B5CD-93B80F1EBA96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessLib", "ChessLib\ChessLib.csproj", "{F6B23574-BFC8-4F0F-A5CC-1560F8532048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZobristLibTests", "ZobristTests\ZobristLibTests.csproj", "{DB7DA2C3-0208-48AE-8678-C9BA8B477449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindCommonPositions", "FindCommonPositions\FindCommonPositions.csproj", "{A5B11B65-3F80-4754-8C27-6CCC40B94381}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF75C50C-05FF-4C7D-B5CD-93B80F1EBA96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF75C50C-05FF-4C7D-B5CD-93B80F1EBA96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF75C50C-05FF-4C7D-B5CD-93B80F1EBA96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF75C50C-05FF-4C7D-B5CD-93B80F1EBA96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B23574-BFC8-4F0F-A5CC-1560F8532048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B23574-BFC8-4F0F-A5CC-1560F8532048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B23574-BFC8-4F0F-A5CC-1560F8532048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B23574-BFC8-4F0F-A5CC-1560F8532048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB7DA2C3-0208-48AE-8678-C9BA8B477449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7DA2C3-0208-48AE-8678-C9BA8B477449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7DA2C3-0208-48AE-8678-C9BA8B477449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7DA2C3-0208-48AE-8678-C9BA8B477449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B11B65-3F80-4754-8C27-6CCC40B94381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B11B65-3F80-4754-8C27-6CCC40B94381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B11B65-3F80-4754-8C27-6CCC40B94381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B11B65-3F80-4754-8C27-6CCC40B94381}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE2D5FBF-182F-4469-9753-E8209AC1E4ED}
+	EndGlobalSection
+EndGlobal
