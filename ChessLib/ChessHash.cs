@@ -17,14 +17,18 @@ namespace ChessLib
         // Make all the squares empty.
         public void ClearBoard()
         {
-        }
+            _hash.ClearBoard();}
 
         public void PlacePiece(char pieceSymbol, string squareName)
         {
+            _hash.PlacePiece(Piece.GetIndex(pieceSymbol), Board.GetSquareIndex(squareName));
         }
 
         public void MakeMove(char piece, string sourceSquare, string destinationSquare)
         {
+            // 4 steps
+            _hash.MakeMove(piece, sourceSquare, destinationSquare);
+            
         }
 
         public void SetupBoard()

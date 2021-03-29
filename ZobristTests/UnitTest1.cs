@@ -4,7 +4,7 @@ using ChessLib;
 using ZobristLib;
 
 // You will need to use your HashLib from the previous lab.
-// using HashLib;
+ using HashLib;
 
 namespace ZobristTests
 {
@@ -362,118 +362,118 @@ namespace ZobristTests
 
 
         // Read a file with three games that are all the same.
-        //[TestMethod]
-        //public void T013_countThreeGames()
-        //{
-        //    string parseString;
-        //    string path = System.Environment.GetEnvironmentVariable("HOMEPATH");
-        //    GameReader reader = new GameReader(path + "\\chessGames\\cs242-threeSameGame.pgn");
-        //    string sourceSquare = "";
-        //    string destinationSquare = "";
-        //    bool gameOver = false;
-        //    int tableSize = 1024 * 1024 * 2 * 51;
-        //    HashWithLinearProbe<ulong, int> hashTable = new HashWithLinearProbe<ulong, int>(tableSize);
-        //    int seed = 3242351;
-        //    ChessHash chessHash = new ChessHash(seed);
-        //    chessHash.SetupBoard();
-        //    GameState state = new GameState();
-        //    state.SetupBoard();
+        [TestMethod]
+        public void T013_countThreeGames()
+        {
+            string parseString;
+            string path = System.Environment.GetEnvironmentVariable("HOMEPATH");
+            GameReader reader = new GameReader(path + "\\chessGames\\cs242-threeSameGame.pgn");
+            string sourceSquare = "";
+            string destinationSquare = "";
+            bool gameOver = false;
+            int tableSize = 1024 * 1024 * 2 * 51;
+            HashWithLinearProbe<ulong, int> hashTable = new HashWithLinearProbe<ulong, int>(tableSize);
+            int seed = 3242351;
+            ChessHash chessHash = new ChessHash(seed);
+            chessHash.SetupBoard();
+            GameState state = new GameState();
+            state.SetupBoard();
 
-        //    int gameCount = 0;
-        //    string lastSource = "";
-        //    string lastDest = "";
-        //    bool eof = false;
-        //    int gameNumber = 0;
-        //    char promotionChar;
-        //    while (!eof)
-        //    {
-        //        eof = reader.GetNextMove(out sourceSquare, out destinationSquare, out gameOver,
-        //            out promotionChar, out parseString);
-        //        if (!eof)
-        //        {
-        //            if (gameOver)
-        //            {
-        //                chessHash.SetupBoard();
-        //                state.SetupBoard();
-        //                ++gameNumber;
-        //            }
-        //            else
-        //            {
-        //                char piece = state.GetSquareOccupant(sourceSquare);
-        //                chessHash.MakeMove(piece, sourceSquare, destinationSquare);
-        //                state.MakeMove(sourceSquare, destinationSquare);
-        //                int count = 0;
-        //                if (hashTable.Contains(chessHash.Hash))
-        //                {
-        //                    count = hashTable.Get(chessHash.Hash);
-        //                }
-        //                Assert.AreEqual(gameNumber, count);
-        //                hashTable.Put(chessHash.Hash, count + 1);
-        //            }
-        //        }
-        //    }
+            int gameCount = 0;
+            string lastSource = "";
+            string lastDest = "";
+            bool eof = false;
+            int gameNumber = 0;
+            char promotionChar;
+            while (!eof)
+            {
+                eof = reader.GetNextMove(out sourceSquare, out destinationSquare, out gameOver,
+                    out promotionChar, out parseString);
+                if (!eof)
+                {
+                    if (gameOver)
+                    {
+                        chessHash.SetupBoard();
+                        state.SetupBoard();
+                        ++gameNumber;
+                    }
+                    else
+                    {
+                        char piece = state.GetSquareOccupant(sourceSquare);
+                        chessHash.MakeMove(piece, sourceSquare, destinationSquare);
+                        state.MakeMove(sourceSquare, destinationSquare);
+                        int count = 0;
+                        if (hashTable.Contains(chessHash.Hash))
+                        {
+                            count = hashTable.Get(chessHash.Hash);
+                        }
+                        Assert.AreEqual(gameNumber, count);
+                        hashTable.Put(chessHash.Hash, count + 1);
+                    }
+                }
+            }
 
-        //    foreach (HashTableEntry<ulong, int> entry in hashTable)
-        //    {
-        //        Assert.AreEqual(3, entry.Payload);
-        //        int count = entry.Payload;
-        //    }
-        //}
-        //// end T013_countThreeGames()
+            foreach (HashTableEntry<ulong, int> entry in hashTable)
+            {
+                Assert.AreEqual(3, entry.Payload);
+                int count = entry.Payload;
+            }
+        }
+        // end T013_countThreeGames()
 
 
         // Read all the games and place the counts in a hashtable
-        //[TestMethod]
-        //public void T014_hashAllGames()
-        //{
-        //    string path = System.Environment.GetEnvironmentVariable("HOMEPATH");
-        //    GameReader reader = new GameReader(path + "\\chessGames\\cs242-allGames.pgn");
-        //    string sourceSquare = "";
-        //    string destinationSquare = "";
-        //    bool gameOver = false;
-        //    int tableSize = 1024 * 1024 * 2 * 97;
-        //    HashWithLinearProbe<ulong, int> hashTable = new HashWithLinearProbe<ulong, int>(tableSize);
-        //    int seed = 3242351;
-        //    ChessHash chessHash = new ChessHash(seed);
-        //    chessHash.SetupBoard();
-        //    GameState state = new GameState();
-        //    state.SetupBoard();
+        [TestMethod]
+        public void T014_hashAllGames()
+        {
+            string path = System.Environment.GetEnvironmentVariable("HOMEPATH");
+            GameReader reader = new GameReader(path + "\\chessGames\\cs242-allGames.pgn");
+            string sourceSquare = "";
+            string destinationSquare = "";
+            bool gameOver = false;
+            int tableSize = 1024 * 1024 * 2 * 97;
+            HashWithLinearProbe<ulong, int> hashTable = new HashWithLinearProbe<ulong, int>(tableSize);
+            int seed = 3242351;
+            ChessHash chessHash = new ChessHash(seed);
+            chessHash.SetupBoard();
+            GameState state = new GameState();
+            state.SetupBoard();
 
-        //    int gameCount = 0;
-        //    string lastSource = "";
-        //    string lastDest = "";
-        //    bool eof = false;
-        //    int gameNumber = 0;
-        //    char promotionChar;
-        //    string parsedString;
-        //    while (!eof)
-        //    {
-        //        eof = reader.GetNextMove(out sourceSquare, out destinationSquare, out gameOver,
-        //            out promotionChar, out parsedString);
-        //        if (!eof)
-        //        {
-        //            if (gameOver)
-        //            {
-        //                chessHash.SetupBoard();
-        //                state.SetupBoard();
-        //                ++gameNumber;
-        //            }
-        //            else
-        //            {
-        //                char piece = state.GetSquareOccupant(sourceSquare);
-        //                if (promotionChar != 0) piece = promotionChar;
-        //                chessHash.MakeMove(piece, sourceSquare, destinationSquare);
-        //                state.MakeMove(sourceSquare, destinationSquare);
-        //                int count = 0;
-        //                if (hashTable.Contains(chessHash.Hash))
-        //                {
-        //                    count = hashTable.Get(chessHash.Hash);
-        //                }
-        //                hashTable.Put(chessHash.Hash, count + 1);
-        //            }
-        //        }
-        //    }
-        //}
+            int gameCount = 0;
+            string lastSource = "";
+            string lastDest = "";
+            bool eof = false;
+            int gameNumber = 0;
+            char promotionChar;
+            string parsedString;
+            while (!eof)
+            {
+                eof = reader.GetNextMove(out sourceSquare, out destinationSquare, out gameOver,
+                    out promotionChar, out parsedString);
+                if (!eof)
+                {
+                    if (gameOver)
+                    {
+                        chessHash.SetupBoard();
+                        state.SetupBoard();
+                        ++gameNumber;
+                    }
+                    else
+                    {
+                        char piece = state.GetSquareOccupant(sourceSquare);
+                        if (promotionChar != 0) piece = promotionChar;
+                        chessHash.MakeMove(piece, sourceSquare, destinationSquare);
+                        state.MakeMove(sourceSquare, destinationSquare);
+                        int count = 0;
+                        if (hashTable.Contains(chessHash.Hash))
+                        {
+                            count = hashTable.Get(chessHash.Hash);
+                        }
+                        hashTable.Put(chessHash.Hash, count + 1);
+                    }
+                }
+            }
+        }
         //// end T014_hashAllGames()
 
 
